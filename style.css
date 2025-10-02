@@ -7,6 +7,26 @@
 body {
     margin: 0;
     font-family: "Michroma", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-color: lightgray;
+}
+
+/* -- SCROLLBAR STYLE -- */
+
+::-webkit-scrollbar {
+    width: 0.4vw;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255, 0%); 
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 1vw;
+    background: rgb(128, 128, 128); 
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(47, 79, 79); 
 }
 
 /* ---- CONTAINER STYLES ---- */
@@ -23,16 +43,21 @@ body {
     grid-template: 1fr 1fr / 1fr 0.5fr;
     gap: 0.2vh;
     padding: 1vh;
-    background-color: white;
-    box-shadow: 0px 0px 15px;
+    background-image: url(images/varying-stripes.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 8px;
 }
 
 #sidebar {
     grid-area: 1 / 1 / 3 / 2;
     display: grid;
     grid-template: 0.1fr 0.8fr 1fr / 1fr;
-    gap: 4vh;
-    background-color: blue;
+    gap: 2vh;
+    background-image: url(images/rose-petals.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 8px;
 }
 
 #mainContent {
@@ -41,7 +66,6 @@ body {
     grid-template: 1fr 0.95fr / 1fr 0.25fr;
     gap: 1vh;
     padding: 1vh;
-    background-color: aqua;
 }
 
 /* -- HEADER STYLES -- */
@@ -58,12 +82,12 @@ body {
     margin: 0.3vw;
     padding: 0.2vw;
     border-radius: 50%;
-    background-color: rgba(200, 200, 200, 20%);
+    background-color: rgba(230, 230, 230, 40%);
     cursor: pointer;
 }
 
 .interactIcon:hover {
-    background-color: rgba(200, 200, 200, 50%);
+    background-color: rgba(240, 240, 240, 50%);
 }
 
 input {
@@ -71,14 +95,14 @@ input {
     height: 3vh;
     border: solid 0.1vw rgb(180, 180, 180);
     border-radius: 1vw;
-    background-color: rgb(180, 180, 180);
+    background-color: rgba(230, 230, 230);
     box-shadow: 0px 0px 0.2vw;
     font-family: inherit;
     font-size: 14px;
 }
 
 input:hover {
-    background-color: rgb(200, 200, 200);
+    background-color: rgba(240, 240, 240);;
 }
 
 input:focus {
@@ -151,34 +175,167 @@ button:hover {
 }
 
 /* -- SIDEBAR STYLES -- */
-#sidebar>div>div>img {
-    width: 5vw;
-    height: 5vh;
-}
-
-#sidebar>div>div>svg{
-    width: 5vw;
-    height: 5vh;
-}
-
-#sidebar>div>div {
+#sidebarTitle>div, .sidebarOpts>div {
     display: flex;
     align-items: center;
     margin: 2%;
 }
 
+#sidebarTitle>div>img {
+    width: 4vw;
+    height: 6vh;
+}
+
+.sidebarOpts {
+    margin: 0vh 1vw;
+}
+ 
+.sidebarOpts>div {
+    padding: 0.15vh;
+    border: solid 0.1vw rgb(180, 180, 180);
+    border-radius: 1vw;
+    background-color: rgba(210, 210, 210, 50%);
+    box-shadow: 0px 0px 0.1vw;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.sidebarOpts>div:hover {
+    background-color: rgba(230, 230, 230, 50%);
+}
+
+.sidebarOpts>div>img {
+    width: 3vw;
+    height: 4vh;
+}
+
 /* -- MAINCONTENT STYLES -- */
 #projectSec {
+    height: 70vh;
     grid-area: 1 / 1 / 3 / 2;
-    background-color: yellow;
+    display: grid;
+    grid-template: 0.1fr 1fr / 1fr;
+    padding: 1vw;
+    overflow-y: auto;
+}
+
+h3 {
+    margin: 1.5vh 0;
+}
+
+#cardHolder {
+    display: grid;
+    grid-template: repeat(auto-fit, 130px) / repeat(auto-fill, 350px);
+    gap: 2vw;
+    justify-content: center;
+}
+
+#cardHolder>div {
+    display: grid;
+    grid-template: 1fr / 0.03fr 1fr;
+}
+
+#cardHolder>div>span {
+    border-radius: 1vw 0 0 1vw ;
+    background-color: rgb(200, 0, 0);
+    box-shadow: 0px 0px 0.2vw;
+}
+
+.card {
+    height: 130px;
+    display: grid;
+    grid-template: 0.2fr 2fr 0.2fr / 1fr 0.7fr ;
+    border-radius: 0 1vw 1vw 0;
+    padding: 0.5vw;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(images/varying-stripes.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 0.2vw;
+    cursor: pointer;
+}
+
+.card:hover {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url(images/varying-stripes.svg);
+}
+
+.cardTitle {
+    grid-area: 1 / 1 / 2 / 3;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.cardDesc {
+    grid-area: 2 / 1 / 3 / 3;
+    margin: 0.5vh 0 ;
+    overflow-y: hidden;
+    font-size: 12px;
+}
+
+.cardActions {
+    grid-area: 3 / 2 / 4 / 3;
+}
+
+.card>div>img {
+    width: 1.2vw;
+    height: 3vh;
+    padding: 0.1vw;
+    border-radius: 50%;
+}
+
+.card>div>img:hover {
+    background-color: rgba(150, 150, 150, 50%);
 }
 
 #noticeSec {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: green;
+    display: grid;
+    grid-template: 0.1fr 1fr / 1fr;
+    padding: 0.2vw;
 }
 
-#trendSec {
+#noticeSec>div, #creditSec>div {
+    height: 30vh;
+    overflow-y: auto;
+    padding: 0.1vh;
+    border-radius: 1vh;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url(images/varying-stripes.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 0px 0px 0.2vw;
+}
+
+.noticeEntry {
+    display: grid;
+    grid-template: 0.1fr 1fr / 1fr;
+    padding: 0.1vw;
+    margin: 0.1vw;
+    border-radius: 1vh;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.noticeEntry:hover {
+    background-color: rgba(150, 150, 150, 50%)
+}
+
+.noitceSmlTxt {
+    font-size: 12px;
+    font-weight: 100;
+    overflow-y: hidden;
+}
+
+.noticeDivide {
+    width: 14vw;
+    height: 0.2vh;
+    margin: 0.5vh;
+    border-radius: 1vh;
+    background-color: rgb(200, 0, 0);
+}
+
+#creditSec {
     grid-area: 2 / 2 / 3 / 3;
-    background-color: violet;
+    display: grid;
+    grid-template: 0.1fr 1fr / 1fr;
+    padding: 0.2vw;
 }
